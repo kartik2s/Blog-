@@ -7,6 +7,7 @@ const API_URL = "http://localhost:4000";
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(express.json());
 
 app.get("/", async (req, res) => {
   try {
@@ -24,7 +25,7 @@ app.get("/new", (req, res) => {
 app.get("/edit/:id", async (req, res) => {
   try {
     const response = await axios.get(`${API_URL}/posts/${req.params.id}`);
-    res.render("modify.ejs", { posts: response.data, heading: "edit post", submit: "update post" });
+    res.render("modify.ejs", { post: response.data, heading: "edit post", submit: "update post" });
   } catch (error) {
     res.status(500).json({message: "error fetching posts"});
   }

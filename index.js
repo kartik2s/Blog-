@@ -33,13 +33,14 @@ let posts = [
 let lastId = 3;
 
 app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 app.get("/posts", (req, res) =>{
     res.json(posts);
 });
 
 app.get("/posts/:id", (req, res) =>{
-    const post = posts.find((p)=>{p.id === parseInt(req.params.id)});
+    const post = posts.find((p)=>p.id === parseInt(req.params.id));
     if(!post)
         return res.status(404).json({message: "post not found"});
     res.json(post);
@@ -52,7 +53,7 @@ app.post("/posts", (req, res) =>{
         title : req.body.title,
         content : req.body.content,
         author : req.body.author,
-        date : new Date(),
+        date : new Date().getTime,
     };
     lastId = newId;
     posts.push(post);
@@ -60,7 +61,7 @@ app.post("/posts", (req, res) =>{
 });
 
 app.patch("/posts/:id", (req, res) =>{
-    const post = posts.find((p) =>{p.id === parseInt(req.params.id)});
+    const post = posts.find((p) =>p.id === parseInt(req.params.id));
     if(!post) 
         return res.status(404).json({message: "post not found"});
     if(req.body.title)
@@ -73,11 +74,11 @@ app.patch("/posts/:id", (req, res) =>{
 });
 
 app.delete("/posts/:id", (req, res) =>{
-    const index = posts.findIndex((p) =>{ p.id === parseInt(req.params.id)});
+    const index = posts.findIndex((p) => p.id === parseInt(req.params.id));
     if(index < 0){
         return res.status(404).json({message: "post not found"});
     }
-    posts.slice(index, 1);
+    posts.splice(index, 1);
     res.json({message: "post deleted"});
 });
 
