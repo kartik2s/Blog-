@@ -19,13 +19,13 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/new", (req, res) => {
-  res.render("modify.ejs", { heading: "new post", submit: "create post" });
+  res.render("modify.ejs", { heading: "New post", submit: "Create post" });
 });
 
 app.get("/edit/:id", async (req, res) => {
   try {
     const response = await axios.get(`${API_URL}/posts/${req.params.id}`);
-    res.render("modify.ejs", { post: response.data, heading: "edit post", submit: "update post" });
+    res.render("modify.ejs", { post: response.data, heading: "Edit post", submit: "Update post" });
   } catch (error) {
     res.status(500).json({message: "error fetching posts"});
   }
@@ -51,7 +51,6 @@ app.post("/api/posts/:id", async(req, res) =>{
 
 app.get("/api/posts/delete/:id", async(req, res) => {
   try {
-    // alert("Click Ok to continue");
     const response = await axios.delete(`${API_URL}/posts/${req.params.id}`);
     res.redirect("/");
   } catch (error) {
