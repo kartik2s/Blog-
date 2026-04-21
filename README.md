@@ -35,4 +35,4 @@ node server.js
 
 ## 📌 Notes
 
-* Data stored in memory (no database) later we update
+* Data stored in Temporary local memory (no database) later we update
