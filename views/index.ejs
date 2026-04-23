@@ -24,7 +24,7 @@
                     <p>
                         <%= post.content%>
                     </p>
-                    <small>By: <%= post.author%> </small>
+                    <small><b style="color: yellow; font-size: 1rem;">By:</b> <%= post.author%> </small>
                     <a class="edit" href="/edit/<%= post.id%>">Edit</a>
                     <a class="delete" href="/api/posts/delete/<%= post.id%>" onclick="return confirm('Are u sure to Delete this Post?')">Delete</a>
                 </li>
