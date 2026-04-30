@@ -1,6 +1,6 @@
 # 📝 Blog App
 
-A simple full-stack blog app using **JavaScript, Node.js, Express, EJS, and Axios**.
+A simple full-stack blog
 It supports basic CRUD operations with a clean UI.
 
 ## 🚀 Features
