@@ -11,6 +11,7 @@ app.use(express.json());
 
 app.get("/", async (req, res) => {
   try {
+    // const response = await axios.get(API_URL + "/posts");
     const response = await axios.get(`${API_URL}/posts`);
     res.render("index.ejs", { posts: response.data });
   } catch (error) {
