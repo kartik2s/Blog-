@@ -1,23 +1,23 @@
-# 📝 Blog App
+# Blog App
 
 A simple full-stack blog
 It supports basic CRUD operations with a clean UI.
 
-## 🚀 Features
+## Features
 
 * View all posts
 * Create new post
 * Edit post
 * Delete post (with confirmation)
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Language:** JavaScript
 * **Frontend:** EJS, HTML, CSS
 * **Backend:** Node.js, Express
 * **API Calls:** Axios
 
-## ▶️ Run Locally
+## Run Locally
 
 1. Install dependencies
 
@@ -31,8 +31,8 @@ node index.js
 
 node server.js
 
-👉 Open: http://localhost:3000
+ Open: http://localhost:3000
 
-## 📌 Notes
+## Notes
 
 * Currnetly Posts Data stored in Temporary memory
